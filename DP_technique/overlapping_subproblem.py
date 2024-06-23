@@ -116,7 +116,7 @@ def minCostStation(N=4):
     
     def calculate_minCost(s, d):
         # base condition
-        if s == d | s == d-1: 
+        if s == d or s == d-1: 
             return cost[s][d]
 
         min_cost = cost[s][d]
@@ -130,6 +130,8 @@ def minCostStation(N=4):
 
     return calculate_minCost(0, N-1)
 
+# print(minCostStation(4))
+
 '''
 This problem adheres to the optimal substructure property, because we are computing
 the min cost of travel between intermediate stations to find the actual min cost
@@ -138,6 +140,6 @@ of going from initial source to final destination.
 Although this implementation solves subproblems multiple times:
 
                         0, 3
-        [0, 1    1, 3]          [0, 2   2, 3]
-                [1, 2   2, 3]    
+        [0, 1    1, 3]          [0, 2       2, 3]
+                [1, 2   2, 3]   [0, 1   1, 2] 
 '''
